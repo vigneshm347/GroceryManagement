@@ -1,0 +1,115 @@
+drop database grocery;
+create database grocery;
+
+use grocery;
+
+create table admin
+(
+uname varchar(255),
+pass varchar(255)
+);
+
+insert into admin values('admin','admin');
+
+create table employee
+(
+employee_id int(255) NOT NULL AUTO_INCREMENT primary key,
+uname varchar(255),
+pass varchar(255),
+email varchar(255) unique,
+gen varchar(255),
+place varchar(255),
+mob varchar(255),
+status varchar(255)
+);
+
+alter table employee AUTO_INCREMENT =1;
+
+create table customer
+(
+customer_id int(255) NOT NULL AUTO_INCREMENT primary key,
+uname varchar(255),
+pass varchar(255),
+email varchar(255) unique,
+gen varchar(255),
+place varchar(255),
+mob varchar(255)
+);
+
+alter table customer AUTO_INCREMENT =1;
+
+create table category
+(
+category_id int(255) NOT NULL AUTO_INCREMENT primary key,
+cname varchar(255)
+);
+
+alter table category AUTO_INCREMENT =1;
+
+create table subcategory
+(
+subcategory_id int(255) NOT NULL AUTO_INCREMENT primary key,
+cid int(255),
+scname varchar(255)
+);
+
+alter table subcategory AUTO_INCREMENT =1;
+
+create table item
+(
+item_id int(255) NOT NULL AUTO_INCREMENT primary key,
+iname varchar(255),
+qua int(255),
+mes varchar(255),
+cost int(255),
+pic varchar(255),
+subcat int(255),
+datee varchar(255)
+);
+
+alter table item AUTO_INCREMENT =1;
+
+create table wallet
+(
+cid int(255),
+cash int(255)
+);
+
+create table card
+(
+cid int(255),
+noc varchar(255),
+cnum varchar(255),
+val varchar(255),
+cvv varchar(255)
+);
+
+create table itemorder
+(
+order_id int(255) NOT NULL AUTO_INCREMENT primary key,
+cid int(255),
+iid int(255),
+iname varchar(255),
+qua varchar(255),
+mes varchar(255),
+cost int(255),
+status varchar(255),
+datee varchar(255)
+);
+
+create table status
+(
+stutus_id int(255) NOT NULL AUTO_INCREMENT primary key,
+cid int(255),
+eid int(255),
+status varchar(255)
+);
+
+create table notification
+(
+cid int(255),
+eid int(255),
+note varchar(255),
+status varchar(255),
+datee varchar(255)
+);
